@@ -6,5 +6,5 @@ class Bank1:
     name = 'Bank1'
 
     @rpc
-    def transfer(user1, user2, value):
+    def transfer(self, user1, user2, value):
         return f'{user1} -> {user2} : $ {value}'

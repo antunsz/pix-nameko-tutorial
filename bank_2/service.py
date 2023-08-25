@@ -4,6 +4,8 @@ from nameko.rpc import rpc, RpcProxy
 class Bank2:
     name = 'Bank2'
 
+    bank1_service = RpcProxy('Bank1')
+
     @rpc
-    def transfer(user1, user2, value):
-        return f'{user1} -> {user2} : {value}'
+    def transfer(self, user1, user2, value):
+        return self.bank1_service.transfer(user1, user2, value)
